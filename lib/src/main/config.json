@@ -12,8 +12,7 @@
       "releaseType": "Beta2"
     }
   },
-  "deviceConfig": {
-  },
+  "deviceConfig": {},
   "module": {
     "package": "com.lbf.lib",
     "deviceType": [

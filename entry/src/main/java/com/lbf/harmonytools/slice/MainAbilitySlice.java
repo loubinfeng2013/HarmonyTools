@@ -31,6 +31,6 @@ public class MainAbilitySlice extends AbilitySlice {
 
     @OnClick(ResourceTable.Id_text_helloworld)
     private void clickText(Component component) {
-        ((Text) component).setText("hm2022");
+        present(new AptAbilitySlice(), new Intent());
     }
 }
