@@ -12,5 +12,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     implementation project(':lib')
+    implementation project(':annotations')
     annotationProcessor project(':processors')
 }
