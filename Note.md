@@ -264,6 +264,10 @@ instance.bind(abilityContext);
 
 检验成果，代码运行在P40上一切正常，至此注入V2版本大功告成。
 
+总结
+注入的方式可以大大简化开发工作，代码也易于维护，运行期注入会因为大量反射消耗一点性能，编译器注入自运行的时候基本不影响性能，但是编译时可能时间
+会长点。总体来说，推荐使用V2版本来注入。
+
 Github地址：https://github.com/loubinfeng2013/HarmonyTools
 
 
