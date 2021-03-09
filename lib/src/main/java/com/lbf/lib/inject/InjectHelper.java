@@ -1,8 +1,8 @@
 package com.lbf.lib.inject;
 
-import com.lbf.lib.inject.annotations.BindView;
-import com.lbf.lib.inject.annotations.OnClick;
-import com.lbf.lib.inject.annotations.UiContent;
+import com.lbf.annotations.V1.BindView;
+import com.lbf.annotations.V1.OnClick;
+import com.lbf.annotations.V1.UiContent;
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.agp.components.Component;

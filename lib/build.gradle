@@ -10,4 +10,7 @@ ohos {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+
+    implementation project(':annotations')
+
 }

@@ -1,15 +1,12 @@
-package com.lbf.lib.inject.annotations;
+package com.lbf.annotations.V2;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * 绑定布局
- */
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.CLASS)
 @Target(ElementType.TYPE)
-public @interface UiContent {
+public @interface UiContentV2 {
     int value();
 }

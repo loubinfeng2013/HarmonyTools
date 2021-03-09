@@ -1,12 +1,15 @@
-package com.lbf.annotations;
+package com.lbf.annotations.V1;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Retention(RetentionPolicy.CLASS)
+/**
+ * 绑定组件
+ */
+@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface BindViewV2 {
+public @interface BindView {
     int value();
 }

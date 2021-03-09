@@ -1,15 +1,12 @@
-package com.lbf.lib.inject.annotations;
+package com.lbf.annotations.V2;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * 监听点击
- */
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.CLASS)
 @Target(ElementType.METHOD)
-public @interface OnClick {
+public @interface OnClickV2 {
     int[] value();
 }

@@ -1,10 +1,10 @@
 package com.lbf.harmonytools.slice;
 
-import com.lbf.annotations.BindViewV2;
-import com.lbf.annotations.OnClickV2;
-import com.lbf.annotations.UiContentV2;
+import com.lbf.annotations.V2.BindViewV2;
+import com.lbf.annotations.V2.OnClickV2;
+import com.lbf.annotations.V2.UiContentV2;
 import com.lbf.harmonytools.ResourceTable;
-import com.lbf.lib.injectv2.InjectHelperV2;
+import com.lbf.lib.inject.InjectHelperV2;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
 import ohos.agp.components.Component;

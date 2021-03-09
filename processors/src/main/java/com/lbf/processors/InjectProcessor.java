@@ -1,13 +1,10 @@
 package com.lbf.processors;
 
 import com.google.auto.service.AutoService;
-import com.lbf.annotations.BindViewV2;
-import com.lbf.annotations.OnClickV2;
-import com.lbf.annotations.UiContentV2;
-import com.squareup.javapoet.JavaFile;
-import com.squareup.javapoet.MethodSpec;
-import com.squareup.javapoet.TypeSpec;
-import com.squareup.javapoet.TypeVariableName;
+import com.lbf.annotations.V2.BindViewV2;
+import com.lbf.annotations.V2.OnClickV2;
+import com.lbf.annotations.V2.UiContentV2;
+import com.squareup.javapoet.*;
 
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;
@@ -226,6 +223,7 @@ public class InjectProcessor extends AbstractProcessor {
 
             TypeSpec typeSpec = TypeSpec.classBuilder(mClassName)
                     .addModifiers(Modifier.PUBLIC)
+                    .addSuperinterface(ParameterizedTypeName.get(ClassName.get("com.lbf.lib.inject", "IViewBinder"), TypeName.get(mTypeElement.asType())))
                     .addMethod(bindBuilder.build())
                     .addMethod(unBindBuilder.build())
                     .build();
