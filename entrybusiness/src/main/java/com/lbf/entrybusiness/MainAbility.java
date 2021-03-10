@@ -1,12 +1,12 @@
-package com.lbf.harmonytools;
+package com.lbf.entrybusiness;
 
 import com.lbf.annotations.router.HRouter;
+import com.lbf.entrybusiness.slice.MainAbilitySlice;
 import com.lbf.entrycommon.Constant;
-import com.lbf.harmonytools.slice.MainAbilitySlice;
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.content.Intent;
 
-@HRouter(Constant.RouterName.EntryMainAbility)
+@HRouter(Constant.RouterName.EntryBusinessMainAbility)
 public class MainAbility extends Ability {
     @Override
     public void onStart(Intent intent) {

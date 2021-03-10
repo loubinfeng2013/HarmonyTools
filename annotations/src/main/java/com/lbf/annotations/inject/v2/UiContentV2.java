@@ -1,4 +1,4 @@
-package com.lbf.annotations.V2;
+package com.lbf.annotations.inject.v2;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.CLASS)
-@Target(ElementType.FIELD)
-public @interface BindViewV2 {
+@Target(ElementType.TYPE)
+public @interface UiContentV2 {
     int value();
 }

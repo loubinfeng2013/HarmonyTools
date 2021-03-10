@@ -1,8 +1,10 @@
 package com.lbf.harmonytools.slice;
 
-import com.lbf.annotations.V1.BindView;
-import com.lbf.annotations.V1.OnClick;
-import com.lbf.annotations.V1.UiContent;
+import com.lbf.annotations.inject.v1.BindView;
+import com.lbf.annotations.inject.v1.OnClick;
+import com.lbf.annotations.inject.v1.UiContent;
+import com.lbf.annotations.router.HRouter;
+import com.lbf.entrycommon.Constant;
 import com.lbf.harmonytools.ResourceTable;
 import com.lbf.lib.inject.InjectHelper;
 import ohos.aafwk.ability.AbilitySlice;
@@ -10,6 +12,7 @@ import ohos.aafwk.content.Intent;
 import ohos.agp.components.Component;
 import ohos.agp.components.Text;
 
+@HRouter(Constant.RouterName.EntryMainAbilitySlice)
 @UiContent(ResourceTable.Layout_ability_main)
 public class MainAbilitySlice extends AbilitySlice {
 
