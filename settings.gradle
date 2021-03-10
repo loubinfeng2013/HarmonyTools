@@ -1,1 +1,1 @@
-include ':entry', ':lib', ':processors', ':annotations'
+include ':entry', ':lib', ':processors', ':annotations', ':utils'
