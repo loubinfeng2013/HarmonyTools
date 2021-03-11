@@ -1,9 +1,9 @@
 package com.lbf.processors;
 
 import com.google.auto.service.AutoService;
-import com.lbf.annotations.V2.BindViewV2;
-import com.lbf.annotations.V2.OnClickV2;
-import com.lbf.annotations.V2.UiContentV2;
+import com.lbf.annotations.inject.v2.BindViewV2;
+import com.lbf.annotations.inject.v2.OnClickV2;
+import com.lbf.annotations.inject.v2.UiContentV2;
 import com.squareup.javapoet.*;
 
 import javax.annotation.processing.*;
@@ -139,7 +139,7 @@ public class InjectProcessor extends AbstractProcessor {
     /**
      * 自动生成的java文件描述
      */
-    class JavaFileDetail {
+   private class JavaFileDetail {
         private String mPackageName;//生成的包名
         private String mClassName;//生成的类名
         private TypeElement mTypeElement;//对应处理的类

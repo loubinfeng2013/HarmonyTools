@@ -1,4 +1,4 @@
-apply plugin: 'com.huawei.ohos.hap'
+apply plugin: 'com.huawei.ohos.library'
 ohos {
     compileSdkVersion 4
     defaultConfig {
@@ -8,11 +8,11 @@ ohos {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
 
     implementation project(':lib')
     implementation project(':annotations')
-    annotationProcessor project(':processors')
     implementation project(':entrycommon')
+    annotationProcessor project(':processors')
 }
