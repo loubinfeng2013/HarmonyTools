@@ -1,0 +1,27 @@
+{
+  "app": {
+    "bundleName": "com.lbf.harmonytools",
+    "vendor": "lbf",
+    "version": {
+      "code": 1,
+      "name": "1.0"
+    },
+    "apiVersion": {
+      "compatible": 4,
+      "target": 4,
+      "releaseType": "Beta2"
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "com.lbf.lib",
+    "deviceType": [
+      "phone"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "libapi",
+      "moduleType": "har"
+    }
+  }
+}

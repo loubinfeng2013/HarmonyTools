@@ -1,0 +1,37 @@
+{
+  "app": {
+    "bundleName": "com.lbf.harmonytools",
+    "vendor": "lbf",
+    "version": {
+      "code": 1,
+      "name": "1.0"
+    },
+    "apiVersion": {
+      "compatible": 4,
+      "target": 4,
+      "releaseType": "Beta2"
+    }
+  },
+  "deviceConfig": {
+  },
+  "module": {
+    "package": "com.lbf.entrybusiness02",
+    "deviceType": [
+      "phone"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "entrybusiness02",
+      "moduleType": "har"
+    },
+    "abilities": [
+      {
+        "orientation": "unspecified",
+        "name": "com.lbf.entrybusiness02.MainAbility",
+        "label": "HarmonyTools",
+        "type": "page",
+        "launchType": "standard"
+      }
+    ]
+  }
+}

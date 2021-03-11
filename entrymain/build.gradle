@@ -1,0 +1,20 @@
+apply plugin: 'com.huawei.ohos.hap'
+ohos {
+    compileSdkVersion 4
+    defaultConfig {
+        compatibleSdkVersion 4
+    }
+    
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
+    testCompile 'junit:junit:4.12'
+
+    implementation project(':libapi')
+    implementation project(':libannotations')
+    annotationProcessor project(':libprocessors')
+    implementation project(':entrycommon')
+    implementation project(':entrybusiness01')
+    implementation project(':entrybusiness02')
+}

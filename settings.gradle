@@ -1,1 +1,1 @@
-include ':entry', ':lib', ':processors', ':annotations', ':utils', ':entrybusiness', ':entrycommon'
+include ':entrymain', ':libapi', ':libprocessors', ':libannotations', ':libutils', ':entrybusiness01', ':entrycommon', ':entrybusiness02'

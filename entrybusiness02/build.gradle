@@ -1,0 +1,18 @@
+apply plugin: 'com.huawei.ohos.library'
+ohos {
+    compileSdkVersion 4
+    defaultConfig {
+        compatibleSdkVersion 4
+    }
+    
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+
+    implementation project(':libapi')
+    implementation project(':libannotations')
+    implementation project(':entrycommon')
+    annotationProcessor project(':libprocessors')
+}
