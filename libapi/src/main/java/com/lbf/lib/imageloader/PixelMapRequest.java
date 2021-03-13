@@ -8,26 +8,38 @@ import ohos.app.AbilityContext;
 import java.lang.ref.SoftReference;
 
 /**
- * 封装图片请求
+ * 图片请求封装类
  */
 public class PixelMapRequest {
 
-    //需要下载的url
+    /**
+     * 需要下载的url
+     */
     private String mUrl;
 
-    //关联的image控件
+    /**
+     * 关联的image控件,使用软引用持有
+     */
     private SoftReference<Image> mImage;
 
-    //上下文对象
+    /**
+     * 上下文对象
+     */
     private AbilityContext mContext;
 
-    //占位图
+    /**
+     * 占位图资源id
+     */
     private int mResId;
 
-    //请求回调监听
+    /**
+     * 请求监听
+     */
     private RequestListener mListener;
 
-    //请求标志
+    /**
+     * 请求标志，用于防止图片错乱，和三级缓存
+     */
     private String mUrlMd5;
 
     public PixelMapRequest(AbilityContext context) {
@@ -35,7 +47,7 @@ public class PixelMapRequest {
     }
 
     /**
-     * 加载url
+     * 设置下载的路径
      *
      * @param url
      * @return
@@ -49,7 +61,7 @@ public class PixelMapRequest {
     }
 
     /**
-     * 设置默认图
+     * 设置默认图资源
      *
      * @param resId
      * @return
@@ -71,7 +83,7 @@ public class PixelMapRequest {
     }
 
     /**
-     * 绑定关联的image控件
+     * 绑定关联的image控件，并将请求加入队列
      *
      * @param image
      */
@@ -79,25 +91,50 @@ public class PixelMapRequest {
         image.setTag(mUrlMd5);
         this.mImage = new SoftReference<>(image);
         // 发起请求
-        RequestManager.getInstance().addBitmapRequest(this);
+        RequestManager.getInstance().addPixelMapRequest(this);
     }
 
+    /**
+     * 获取请求url
+     *
+     * @return
+     */
     public String getUrl() {
         return mUrl;
     }
 
+    /**
+     * 获取控件实例
+     *
+     * @return
+     */
     public SoftReference<Image> getImage() {
         return mImage;
     }
 
+    /**
+     * 获取展位图资源id
+     *
+     * @return
+     */
     public int getResId() {
         return mResId;
     }
 
+    /**
+     * 获取监听器实例
+     *
+     * @return
+     */
     public RequestListener getListener() {
         return mListener;
     }
 
+    /**
+     * 获取请求标志位
+     *
+     * @return
+     */
     public String getUrlMd5() {
         return mUrlMd5;
     }

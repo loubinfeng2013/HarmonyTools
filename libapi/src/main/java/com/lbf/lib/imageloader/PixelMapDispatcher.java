@@ -18,10 +18,9 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class PixelMapDispatcher extends Thread {
 
-    //用来更新ui的handler
-    private EventHandler handler = new EventHandler(EventRunner.getMainEventRunner());
+    private EventHandler handler = new EventHandler(EventRunner.getMainEventRunner());//用来更新ui的handler
 
-    private LinkedBlockingQueue<PixelMapRequest> mRequestQueue;
+    private LinkedBlockingQueue<PixelMapRequest> mRequestQueue;//存放请求的集合
 
     public PixelMapDispatcher(LinkedBlockingQueue<PixelMapRequest> queue) {
         this.mRequestQueue = queue;
@@ -34,17 +33,13 @@ public class PixelMapDispatcher extends Thread {
                 continue;
             try {
                 PixelMapRequest request = mRequestQueue.take();
-                if (request == null) {
+                if (request == null)
                     continue;
-                }
-                // 设置占位图片
-                showLoadingImg(request);
-                // 网络加载获取图片资源
-                PixelMap pixelMap = findPixelMap(request);
-                // 将图片显示到Image
-                showImageView(request, pixelMap);
+                showLoadingImg(request);//1.设置占位图片
+                PixelMap pixelMap = findPixelMap(request);//2.加载图片数据
+                showImageView(request, pixelMap);//3.将图片显示到Image
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
         }
     }
@@ -71,8 +66,10 @@ public class PixelMapDispatcher extends Thread {
      * @return
      */
     private PixelMap findPixelMap(PixelMapRequest request) {
-        //先不处理缓存逻辑
+        //1.先在缓存中查找 todo
+        //2.没有再从网络上下载
         PixelMap pixelMap = downloadPixelMap(request);
+        //3.下载完毕返回并缓存 todo
         return pixelMap;
     }
 
@@ -91,7 +88,7 @@ public class PixelMapDispatcher extends Thread {
             is = urlConnection.getInputStream();
             ImageSource imageSource = ImageSource.create(is, new ImageSource.SourceOptions());
             ImageSource.DecodingOptions decodingOptions = new ImageSource.DecodingOptions();
-            decodingOptions.desiredPixelFormat = PixelFormat.ARGB_8888;
+            decodingOptions.desiredPixelFormat = PixelFormat.RGB_565;
             pixelMap = imageSource.createPixelmap(decodingOptions);
             return pixelMap;
         } catch (Exception e) {
@@ -122,10 +119,10 @@ public class PixelMapDispatcher extends Thread {
                 image.setPixelMap(pixelMap);
             });
             if (listener != null)
-                listener.onSuccess(pixelMap);
+                listener.onSuccess(request.getUrl(), pixelMap);
         } else {
             if (listener != null)
-                listener.onFail();
+                listener.onFail(request.getUrl());
         }
     }
 }

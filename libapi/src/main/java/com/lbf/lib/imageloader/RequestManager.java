@@ -7,17 +7,25 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * 请求管理类
+ * 图片请求管理类（单列）
  */
 public class RequestManager {
 
-    //上下文对象
+    /**
+     * 上下文对象
+     */
     private AbilityContext mContext;
-    //缓存请求的队列
+    /**
+     * 缓存请求的队列，考虑到可能会有多个线程操作这个队列，所以这个需要用堵塞式的队列
+     */
     private LinkedBlockingQueue<PixelMapRequest> mRequestQueue = new LinkedBlockingQueue<>();
-    //真正处理者的数组
+    /**
+     * 存放真正处理者的数组
+     */
     private PixelMapDispatcher[] dispatchers;
-    //线程池管理线程
+    /**
+     * 线程池
+     */
     public ExecutorService executorService;
 
     private RequestManager() {
@@ -31,14 +39,20 @@ public class RequestManager {
         return Holder.manager;
     }
 
+    /**
+     * 初始化，建议放在MyApplication中执行
+     *
+     * @param abilityContext
+     */
     public void init(AbilityContext abilityContext) {
         this.mContext = abilityContext;
-        // 初始化线程池
         initThreadExecutor();
-        // 只有一个管理者，所有在这里启动最合适
         start();
     }
 
+    /**
+     * 初始化线程池
+     */
     public void initThreadExecutor() {
         int size = Runtime.getRuntime().availableProcessors();
         if (size <= 0) {
@@ -48,28 +62,32 @@ public class RequestManager {
         executorService = Executors.newFixedThreadPool(size);
     }
 
+    /**
+     * 启动工作
+     */
     public void start() {
         stop();
         startAllDispatcher();
     }
 
-    // 处理并开始所有的线程
+    /**
+     * 启动所有处理线程
+     */
     public void startAllDispatcher() {
-        // 获取线程最大数量
-        final int threadCount = Runtime.getRuntime().availableProcessors();
+        final int threadCount = Runtime.getRuntime().availableProcessors();//获取最大线程数
         dispatchers = new PixelMapDispatcher[threadCount];
         if (dispatchers.length > 0) {
             for (int i = 0; i < threadCount; i++) {
-                // 线程数量开辟的请求分发去抢请求资源对象，谁抢到了，就由谁去处理
-                PixelMapDispatcher pixelmapDispatcher = new PixelMapDispatcher(mRequestQueue);
-                executorService.execute(pixelmapDispatcher);
-                // 将每个dispatcher放到数组中，方便统一处理
+                PixelMapDispatcher pixelmapDispatcher = new PixelMapDispatcher(mRequestQueue);//创建处理者实例
+                executorService.execute(pixelmapDispatcher);//加入线程池并启动
                 dispatchers[i] = pixelmapDispatcher;
             }
         }
     }
 
-    // 停止所有的线程
+    /**
+     * 停止所有工作
+     */
     public void stop() {
         if (dispatchers != null && dispatchers.length > 0) {
             for (PixelMapDispatcher pixelmapDispatcher : dispatchers) {
@@ -80,8 +98,12 @@ public class RequestManager {
         }
     }
 
-    // 这里收集所有请求
-    public void addBitmapRequest(PixelMapRequest pixelMapRequest) {
+    /**
+     * 增加请求
+     *
+     * @param pixelMapRequest
+     */
+    public void addPixelMapRequest(PixelMapRequest pixelMapRequest) {
         if (pixelMapRequest == null) {
             return;
         }

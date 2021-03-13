@@ -26,6 +26,12 @@ public class HRouter {
         return Holder.Instance;
     }
 
+    /**
+     * 需要在主工程的MyApplication中调用
+     *
+     * @param abilityContext
+     * @return
+     */
     public boolean init(AbilityContext abilityContext) {
         try {
             List<Class<?>> classList = ClassUtils.ScanClassInfoWithPackageName("com.lbf.hrouter", abilityContext);

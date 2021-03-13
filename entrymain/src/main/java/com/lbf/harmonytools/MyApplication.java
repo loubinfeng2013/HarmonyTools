@@ -8,7 +8,9 @@ public class MyApplication extends AbilityPackage {
     @Override
     public void onInitialize() {
         super.onInitialize();
+        //初始化HRouter
         HRouter.NewInstance().init(this);
+        //初始化ImageLoader
         RequestManager.getInstance().init(this);
     }
 }
