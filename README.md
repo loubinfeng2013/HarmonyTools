@@ -19,7 +19,7 @@
 ## 鸿蒙版ARouter（HRouter）
 详情信息：https://juejin.cn/post/6938751760517300231
 ## 鸿蒙版Glide
-马上推出
+详情信息：https://juejin.cn/post/6939486647092248590
 
 # 后言
 为鸿蒙贡献一点力量，可以的话请star下，谢谢!
