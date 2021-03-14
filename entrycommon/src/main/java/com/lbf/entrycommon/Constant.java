@@ -7,6 +7,7 @@ public final class Constant {
         public static final String EntryMainMainAbility = "/entrymain/mainability";
         public static final String EntryMainMainAbilitySlice = "/entrymain/mainabilityslice";
         public static final String EntryMainAptAbilitySlice = "/entrymain/aptabilityslice";
+        public static final String EntryMainListAbilitySlice = "/entrymain/listabilityslice";
         //module entrybusiness01
         public static final String EntryBusiness01MainAbility = "/entrybusiness01/mainability";
         public static final String EntryBusiness01MainAbilitySlice = "/entrybusiness01/mainabilityslice";

@@ -16,6 +16,16 @@
   "module": {
     "package": "com.lbf.harmonytools",
     "name": ".MyApplication",
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.INTERNET",
+        "reason": "INTERNET",
+        "usedScene": {
+          "ability": ["com.lbf.harmonytools.MainAbility"],
+          "when": "always"
+        }
+      }
+    ],
     "deviceType": [
       "phone"
     ],

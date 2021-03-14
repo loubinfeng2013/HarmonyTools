@@ -36,6 +36,6 @@ public class MainAbilitySlice extends AbilitySlice {
     private void clickText(Component component) {
         //com.lbf.lib.router.HRouter.NewInstance().abilityNavigation(getAbility(), Constant.RouterName.EntryBusiness01MainAbility, new Intent());
 
-        com.lbf.lib.router.HRouter.NewInstance().abilitySliceNavigation(this, Constant.RouterName.EntryMainAptAbilitySlice, new Intent());
+        com.lbf.lib.router.HRouter.NewInstance().abilitySliceNavigation(this, Constant.RouterName.EntryMainListAbilitySlice, new Intent());
     }
 }
